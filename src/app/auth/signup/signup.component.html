@@ -1,0 +1,142 @@
+<div class="surface-0 h-screen w-screen overflow-hidden">
+  <p-toast></p-toast>
+  <div class="grid h-full mt-0">
+    <div class="col-12 lg:col-6">
+      <div class="flex justify-content-center align-items-center h-full">
+        <div class="surface-card py-6 login--form">
+          <div class="mb-5">
+            <div class="text-900 font-bold text-5xl font-medium">Signup</div>
+            <span class="text-600 font-medium">Create to your account</span>
+          </div>
+
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="field p-fluid block">
+              <label for="name" class="block text-900 font-bold text-lg"
+                >Name</label
+              >
+              <input
+                id="name"
+                formControlName="name"
+                type="text"
+                placeholder="name"
+                required
+                pInputText
+                class="w-full"
+                [ngClass]="{'ng-invalid ng-dirty': signupForm.get('name')?.errors?.['required'] && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched) }"
+              />
+              <small
+                class="p-error"
+                *ngIf="signupForm.get('name')?.errors?.['required'] && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)"
+              >
+                Name is Required.
+              </small>
+            </div>
+            <div class="field p-fluid block">
+              <label for="email" class="block text-900 font-bold text-lg"
+                >Email ID</label
+              >
+              <input
+                id="email"
+                formControlName="email"
+                type="text"
+                placeholder="email"
+                required
+                pInputText
+                class="w-full"
+                [ngClass]="{'ng-invalid ng-dirty': signupForm.get('email')?.errors?.['required'] && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched) }"
+              />
+              <small
+                class="p-error"
+                *ngIf="signupForm.get('email')?.errors?.['required'] && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)"
+              >
+                Email ID is Required.
+              </small>
+              <!-- Removed email login for LDAP integration -->
+              <small
+                class="p-error"
+                *ngIf="signupForm.get('email')?.hasError('pattern')"
+              >
+                Invalid Email ID.
+              </small>
+            </div>
+            <div class="field p-fluid block">
+              <label for="phone" class="block text-900 font-bold text-lg"
+                >Phone Number</label
+              >
+              <input
+                id="phone"
+                formControlName="phone"
+                type="text"
+                placeholder="phone"
+                required
+                pInputText
+                class="w-full"
+                [ngClass]="{'ng-invalid ng-dirty': signupForm.get('phone')?.errors?.['required'] && (signupForm.controls['phone'].dirty || signupForm.controls['phone'].touched) }"
+              />
+              <small
+                class="p-error"
+                *ngIf="signupForm.get('phone')?.errors?.['required'] && (signupForm.controls['phone'].dirty || signupForm.controls['phone'].touched)"
+              >
+                Phone Number is Required.
+              </small>
+              <!-- Removed email login for LDAP integration -->
+              <small
+                class="p-error"
+                *ngIf="signupForm.get('phone')?.hasError('pattern')"
+              >
+                Invalid Phone Number.
+              </small>
+            </div>
+            <div class="field p-fluid block">
+              <label for="password1" class="block text-900 font-bold text-lg"
+                >Password</label
+              >
+              <span class="p-input-icon-right">
+                <i
+                  style="cursor: pointer"
+                  [ngClass]="
+                    currentPassword.type == 'password'
+                      ? 'pi pi-eye'
+                      : 'pi pi-eye-slash'
+                  "
+                  (click)="
+                    currentPassword.type =
+                      currentPassword.type == 'password' ? 'text' : 'password'
+                  "
+                ></i>
+                <input
+                  #currentPassword
+                  placeholder="Password"
+                  class="w-full"
+                  type="password"
+                  formControlName="password"
+                  [feedback]="false"
+                  pPassword
+                  [ngClass]="{'ng-invalid ng-dirty': signupForm.get('password')?.errors?.['pattern'] || signupForm.get('password')?.errors?.['required'] && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)}"
+                />
+              </span>
+              <small
+                class="p-error"
+                *ngIf="signupForm.get('password')?.errors?.['required'] && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)"
+              >
+                Password is Required.
+              </small>
+            </div>
+
+            <div>
+              Already have an account?
+              <a routerLink="/login" class="cursor-pointer">Login</a>
+            </div>
+            <button
+              type="submit"
+              pButton
+              pRipple
+              label="Signup"
+              class="w-full p-2 mt-3 text-xl"
+            ></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

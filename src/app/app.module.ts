@@ -22,18 +22,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationService } from 'primeng/api';
 import { TableService } from 'primeng/table';
 import { LoginComponent } from './auth/login/login.component';
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { ResetPasswordModule } from './auth/reset-password/reset-password.module';
-import { RoleUnassignRedirectComponent } from './auth/role-unassign-redirect/role-unassign-redirect.component';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoadingScreenComponent,
     LoginComponent,
-    ForgotPasswordComponent,
-    RoleUnassignRedirectComponent,
+    SignupComponent,
     NoAccessComponent,
   ],
   imports: [
@@ -41,7 +38,6 @@ import { NoAccessComponent } from './no-access/no-access.component';
     AppLayoutModule,
     SharedModule,
     BrowserAnimationsModule,
-    ResetPasswordModule,
   ],
   providers: [
     ConfirmationService,

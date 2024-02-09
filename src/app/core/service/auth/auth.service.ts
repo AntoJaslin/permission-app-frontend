@@ -37,35 +37,8 @@ export class AuthService {
     return this.http.post<any>(this.BASE_URL + 'auth/login', data);
   }
 
-  validateOTP(otp: string, otpType: string) {
-    let mailID = this.sessionService.getLocalStorageKey('userEmail');
-    let request = {
-      siteID: 0,
-      userID: 0,
-      emailID: mailID,
-      otp: otp,
-      otpType: otpType,
-    };
-    return this.http.post<any>(this.BASE_URL + 'Auth/ValidateOTP', request);
-  }
-
-  forgotPassword(emailID: string, type: string) {
-    let request = {
-      emailID: emailID,
-      requestType: type,
-    };
-    return this.http.post<any>(this.BASE_URL + 'Auth/ForgotPassword', request);
-  }
-
-  resetPassword(data: any) {
-    let request = {
-      siteID: 0,
-      userID: 0,
-      uniqueID: data.uniqueID,
-      emailID: data.emailID,
-      password: data.password,
-    };
-    return this.http.post<any>(this.BASE_URL + 'Auth/ResetPassword', request);
+  signupUser(data: any) {
+    return this.http.post<any>(this.BASE_URL + 'auth/signup', data);
   }
 
   exchangeRefreshToken(tokens) {

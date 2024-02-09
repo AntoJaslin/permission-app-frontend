@@ -46,7 +46,6 @@ export class UserComponent implements OnInit {
         header: 'Status',
         columFilterType: 'text',
       },
-      { field: 'icons', header: 'Action' },
     ];
 
     this.searchNameControler.valueChanges
@@ -62,18 +61,9 @@ export class UserComponent implements OnInit {
   }
 
   getUsers() {
-    this.userService
-      .getAllUsers()
-      .pipe(
-        map((data) => {
-          let icons = ['/assets/icons/edit.svg', '/assets/icons/delete.svg'];
-          data.data.map((item) => (item.icons = icons));
-          return data;
-        })
-      )
-      .subscribe((response) => {
-        this.tableData = response?.data;
-        this.cdr.markForCheck();
-      });
+    this.userService.getAllUsers().subscribe((response) => {
+      this.tableData = response?.data;
+      this.cdr.markForCheck();
+    });
   }
 }

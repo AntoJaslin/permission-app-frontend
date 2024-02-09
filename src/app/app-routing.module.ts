@@ -4,10 +4,9 @@ import { AuthGuard, NoAuthGuard } from './core/guards';
 import { AppLayoutComponent } from './layout/app-layout/app.layout.component';
 import { PermissionsGuard } from './core/guards/permission.guard';
 import { LoginComponent } from './auth/login/login.component';
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { Permission } from './core/constants/app.permission.enum';
-import { RoleUnassignRedirectComponent } from './auth/role-unassign-redirect/role-unassign-redirect.component';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -22,27 +21,10 @@ const routes: Routes = [
     canActivate: [NoAuthGuard],
   },
   {
-    path: 'enter-otp',
+    path: 'signup',
     pathMatch: 'full',
-    component: ForgotPasswordComponent,
+    component: SignupComponent,
     canActivate: [NoAuthGuard],
-  },
-  // Remove forgot password feature for LDAP integration
-  // {
-  //   path: 'forgot-password',
-  //   pathMatch: 'full',
-  //   component: ForgotPasswordComponent
-  // },
-  // {
-  //     path: 'sso-redirect',
-  //     pathMatch: 'full',
-  //     component: SsoRedirectComponent
-  // },
-  {
-    path: 'role-unassign-redirect',
-    pathMatch: 'full',
-    component: RoleUnassignRedirectComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: '',
