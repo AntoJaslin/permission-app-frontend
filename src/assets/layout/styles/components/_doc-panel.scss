@@ -1,0 +1,17 @@
+.at_panel {
+    .p-panel .p-panel-header {
+        background-color: #fff !important;
+        color: var(--primary-color);
+        font-size: 16px;
+    }
+
+    .p-panel .p-panel-header .p-panel-header-icon {
+        background: rgb(50 150 244 / 80%);
+        color: #fff;
+    }
+
+    .p-panel.p-panel-toggleable .p-panel-header {
+        padding: 0.95rem 1.25rem;
+        cursor: pointer;
+    }
+}

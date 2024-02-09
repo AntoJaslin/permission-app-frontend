@@ -1,0 +1,92 @@
+<ul class="layout-menu">
+  <div class="flex flex-column menu-container">
+    <ul class="menu-container__list">
+      <li
+        class="menu-container__list-item active-menuitem"
+        [routerLinkActive]="['active-route-1']"
+      >
+        <a routerLink="/dashboard" [routerLinkActive]="['active-route-2']">
+          <div class="align-menu flex align-items-center justify-content-start">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_85_7532)">
+                <path
+                  d="M11.5624 0H2.18742C0.981216 0 0 0.981216 0 2.18742V7.81242C0 9.01886 0.981216 10.0001 2.18742 10.0001H11.5624C12.7689 10.0001 13.7501 9.01886 13.7501 7.81242V2.18742C13.7501 0.981216 12.7689 0 11.5624 0Z"
+                  fill="#949494"
+                />
+                <path
+                  d="M11.5624 12.4999H2.18742C0.981216 12.4999 0 13.4812 0 14.6876V27.8126C0 29.0188 0.981216 30 2.18742 30H11.5624C12.7689 30 13.7501 29.0188 13.7501 27.8126V14.6876C13.7501 13.4812 12.7689 12.4999 11.5624 12.4999Z"
+                  fill="#949494"
+                />
+                <path
+                  d="M27.8127 19.9999H18.4377C17.2312 19.9999 16.25 20.9812 16.25 22.1876V27.8126C16.25 29.0188 17.2312 30 18.4377 30H27.8127C29.0189 30 30.0001 29.0188 30.0001 27.8126V22.1876C30.0001 20.9812 29.0189 19.9999 27.8127 19.9999Z"
+                  fill="#949494"
+                />
+                <path
+                  d="M27.8127 0H18.4377C17.2312 0 16.25 0.981216 16.25 2.18742V15.3124C16.25 16.5189 17.2312 17.5001 18.4377 17.5001H27.8127C29.0189 17.5001 30.0001 16.5189 30.0001 15.3124V2.18742C30.0001 0.981216 29.0189 0 27.8127 0Z"
+                  fill="#949494"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_85_7532">
+                  <rect width="30" height="30" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <span class="layout-menuitem-text">Dashboard</span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="menu-container__list-item active-menuitem"
+        [routerLinkActive]="['active-route-1']"
+        appUserAccessPermission
+        [permission]="sidenavPermission.ORGANIZATION_MODULE"
+      >
+        <a routerLink="/organization" [routerLinkActive]="['active-route-2']">
+          <div class="align-menu flex align-items-center justify-content-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 512 512"
+            >
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96v32V480H128V128 96zM64 96H96V480H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64zM448 480H416V96h32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64z"
+              />
+            </svg>
+            <span class="layout-menuitem-text">Organization</span>
+          </div>
+        </a>
+      </li>
+
+      <li
+        class="menu-container__list-item active-menuitem"
+        [routerLinkActive]="['active-route-1']"
+        appUserAccessPermission
+        [permission]="sidenavPermission.USER_MODULE"
+      >
+        <a routerLink="/user" [routerLinkActive]="['active-route-2']">
+          <div class="align-menu flex align-items-center justify-content-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+            >
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+              />
+            </svg>
+            <span class="layout-menuitem-text">Users</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</ul>

@@ -1,0 +1,53 @@
+<div class="at_profile-details">
+  <div class="usercard">
+    <!-- Commented for future reference -->
+    <!-- <div class="usercard__avator ">
+            <p-badge [value]="userInfo | username_label" size="large" severity="warning"></p-badge>
+        </div> -->
+    <div class="usercard__details">
+      <div class="usercard__details-info">
+        <div class="usercard__details-info__userName">
+          <!-- <p-badge [value]="userInfo | username_label" size="large" severity="warning"></p-badge> -->
+          <span
+            [pTooltip]="userInfo.userName"
+            tooltipPosition="top"
+            *ngIf="userInfo.userName.length >= 25; else noTooltip_username"
+          >
+            {{ userInfo.userName }}
+          </span>
+          <ng-template #noTooltip_username>
+            <span>
+              {{ userInfo.userName }}
+            </span>
+          </ng-template>
+        </div>
+        <span class="cursor-pointer">
+          <img src="assets/icons/edit.svg" alt="edit-icon" />
+        </span>
+      </div>
+      <div class="usercard__details-info">
+        <span
+          [pTooltip]="userInfo.emailID"
+          tooltipPosition="top"
+          *ngIf="userInfo.emailID.length >= 25; else noTooltip_emailId"
+        >
+          {{ userInfo.emailID }}
+        </span>
+        <ng-template #noTooltip_emailId>
+          <span>{{ userInfo.emailID }}</span>
+        </ng-template>
+      </div>
+    </div>
+    <!-- Remove password reset feature for LDAP integration -->
+    <!-- <hr>
+        <div class="flex align-content-center cursor-pointer" (click)="resetPassword()">
+            <img class="mr-2" src="/assets/icons/reset.svg" alt="logout">
+            <span class="text">Reset Password</span>
+        </div> -->
+    <hr />
+    <div class="flex align-content-center">
+      <img class="mr-2" src="/assets/icons/logout.svg" alt="logout" />
+      <span class="text cursor-pointer" (click)="onLogoutClick()">Logout</span>
+    </div>
+  </div>
+</div>

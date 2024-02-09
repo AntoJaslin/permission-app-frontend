@@ -1,0 +1,51 @@
+::ng-deep .at_profile-details{
+    margin:1rem 0;
+    .usercard{
+        // Commented for future reference
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        margin: 1rem;
+        .usercard__avator{
+            margin-right: 1rem;
+        }
+        .usercard__details{
+            // Commented for future reference
+            // margin-left: 1rem;
+            // display: flex;
+            // align-items: center;
+                
+            .usercard__details-info:not(:first-child) {
+                margin: .5rem 0;
+                opacity: .7;
+            }
+            .usercard__details-info__userName{
+                color: #000;
+                max-width: 165px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .usercard__details-info{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                // Commented for future reference
+                //max-width: 205px;
+            }
+            .usercard__details-info:first-child{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+    .p-badge.p-badge-lg {
+        font-size: .8rem;
+        min-width: 2.25rem;
+        height: 2.25rem;
+        line-height: 2.25rem;
+        background:#3296F4;
+        border-radius: 50%;
+    }
+}

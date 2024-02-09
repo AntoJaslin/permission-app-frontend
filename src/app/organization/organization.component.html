@@ -1,0 +1,119 @@
+<div class="grid">
+  <div class="col-6 pl-0">
+    <h5 class="mb-0">
+      <span> <img class="ml-1" [src]="'assets/icons/users.svg'" /></span>Users
+    </h5>
+  </div>
+</div>
+<p-toast></p-toast>
+<div class="grid">
+  <div class="col-12 pt-0">
+    <doc-table
+      [data]="tableData"
+      [columns]="columnNames"
+      [rowHover]="false"
+      [loading]="false"
+      [rowsPerPageOptions]="[10, 25, 50, 100]"
+      [showCurrentPageReport]="false"
+      [paginator]="true"
+      [globalFilterFields]="['teamName']"
+      [headerTemplate]="headerTemplate"
+      [customSort]="true"
+      [bodyTemplate]="bodyTemplate"
+      [toggleColumn]="toggleColumn"
+      noDataFound="Users"
+    >
+      <ng-template #toggleColumn>
+        <div class="grid">
+          <div class="col-6">
+            <div class="p-input-icon-left mb-2 at_search--bar">
+              <i><img src="/assets/icons/search.svg" alt="search-icon" /> </i>
+              <input
+                type="text"
+                pInputText
+                class="search-box"
+                placeholder="Search Users"
+                [formControl]="searchNameControler"
+              />
+            </div>
+          </div>
+          <div class="col-6 flex justify-content-end">
+            <button
+              appUserAccessPermission
+              iconPos="left"
+              routerLink="/admin-settings/teams/edit"
+              pButton
+              pRipple
+              type="button"
+              class="at_btn-add"
+            >
+              <span class="p-button-icon p-button-icon-left">
+                <img src="/assets/icons/add-circle.svg" />
+              </span>
+              <span class="p-button-label">Add Team</span>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #headerTemplate let-header>
+        <tr class="p-selectable-row">
+          <ng-container *ngFor="let item of header">
+            <th class="text-center" *ngIf="item?.header !== 'Action'">
+              {{ item?.header }}
+              <ng-container>
+                <p-columnFilter
+                  [matchMode]="'contains'"
+                  [showOperator]="false"
+                  [showAddButton]="false"
+                  [type]="item?.columFilterType"
+                  [field]="item?.field"
+                  display="menu"
+                  class="ml-auto"
+                ></p-columnFilter>
+              </ng-container>
+            </th>
+            <th
+              class="text-center"
+              *ngIf="item?.header === 'Action'"
+              appUserAccessPermission
+            >
+              {{ item?.header }}
+              <ng-container>
+                <p-columnFilter
+                  [showAddButton]="false"
+                  [type]="item?.columFilterType"
+                  [field]="item?.field"
+                  display="menu"
+                  class="ml-auto"
+                ></p-columnFilter>
+              </ng-container>
+            </th>
+          </ng-container>
+        </tr>
+      </ng-template>
+      <ng-template let-body #bodyTemplate let-rowIndex="rowIndex">
+        <tr
+          [pSelectableRow]="body"
+          [pSelectableRowIndex]="rowIndex"
+          class="table-body p-selectable-row"
+        >
+          <td>{{ body?.organization_name }}</td>
+          <td>{{ body?.email }}</td>
+          <td>{{ body?.phone }}</td>
+          <td>{{ body?.location }}</td>
+          <td>{{ body?.size }}</td>
+          <td>{{ body?.status }}</td>
+          <td class="at_table--actions" *ngIf="body?.icons?.length >= 1">
+            <i *ngIf="body.icons[0]" class="at_table--actions-edit">
+              <img [src]="body.icons[0]" />
+            </i>
+            <i *ngIf="body.icons[1]" class="at_table--actions-delete">
+              <img [src]="body.icons[1]" />
+            </i>
+          </td>
+        </tr>
+      </ng-template>
+    </doc-table>
+  </div>
+</div>

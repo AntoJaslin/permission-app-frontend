@@ -1,0 +1,45 @@
+.at_page-header {
+    &--card &--card_title {
+        h5 span {
+            margin-right: 25px;
+        }
+        h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+    .p-breadcrumb.p-component {
+        border: none !important;
+        padding-left: 0px !important;
+        background-color: transparent;
+
+    }
+    &--card_btn {
+        padding: 14px 40px;
+    }
+    &--card_overlay {
+
+        &-search {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            .p-input-icon-left > i:first-of-type {
+                
+                img {
+                    margin-top: -5px;
+                    width: 20px;
+                }
+            }
+            input {
+                border: none;
+            }
+        }
+
+        &-body {
+            padding-top: 5px;
+        }
+        
+    }
+    
+}

@@ -1,0 +1,18 @@
+:host ::ng-deep .p-dialog-header-close-icon {
+    color: rgba(255, 90, 90, 1);
+    font-size: 1rem;
+    padding: 2px;
+    border: 2px solid rgba(255, 90, 90, 1);
+    border-radius: 12px;
+
+    .p-dialog .p-dialog-header .p-dialog-title {
+        font-weight: 400;
+        font-size: 1rem;
+    }
+}
+
+.doc_assign-reassign-dialog {
+    .p-dialog-content {
+        overflow-y: unset;
+    }
+}

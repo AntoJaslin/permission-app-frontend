@@ -1,0 +1,25 @@
+
+::ng-deep .at_roles--table{
+    .table-header{
+        background: #FBFBFB !important;
+        text-align: left !important;
+    }
+
+    tr{
+        td{
+            text-align: left !important;
+            font-size: 500;
+        }
+        td.text-center{
+            text-align: center !important;
+        }
+    }
+}
+
+::ng-deep {
+    .p-column-filter-overlay {
+        .p-datepicker:not(.p-datepicker-inline) {
+            left: -145px !important;
+        }
+    }
+}

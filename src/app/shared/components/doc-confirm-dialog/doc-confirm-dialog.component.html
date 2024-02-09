@@ -1,0 +1,86 @@
+<div class="doc_confirm_dialog">
+  <p>{{ dialogData.message }}</p>
+  <form
+    [formGroup]="userForm"
+    class="grid"
+    *ngIf="dialogData?.formStatus"
+    style="height: 115px"
+  >
+    <div
+      class="col-12 flex justify-content-center align-items-center border-bottom examinarput"
+    >
+      <div>
+        <input
+          formControlName="userName"
+          maxlength="50"
+          class="at_input"
+          type="text"
+          pInputText
+          minlength="1"
+          maxlength="30"
+        />
+        <div
+          class="relative"
+          *ngIf="
+            userForm.controls.userName.invalid &&
+            (userForm.controls.userName.dirty ||
+              userForm.controls.userName.touched)
+          "
+        >
+          <small
+            style="display: block"
+            class="p-error absolute mt-1"
+            *ngIf="userForm.controls.userName.errors?.required"
+          >
+            Account Name is required
+          </small>
+          <small
+            class="p-error absolute mt-1"
+            *ngIf="userForm.controls.userName.errors?.noLeadingWhitespace"
+          >
+            Whitespace is not allowed
+          </small>
+          <small
+            class="p-error absolute mt-1"
+            *ngIf="userForm.controls.userName.errors?.invalidCharacters"
+          >
+            Account Name cannot be contain number / special characters
+          </small>
+        </div>
+      </div>
+    </div>
+  </form>
+  <p-divider></p-divider>
+  <div
+    *ngIf="!dialogData?.isLogoutDialog"
+    class="col-12 p-0 flex justify-content-end align-items-center"
+  >
+    <button
+      (click)="onConfirm()"
+      pButton
+      pRipple
+      type="button"
+      label="Confirm"
+      class="p-button-raised at_btn"
+    ></button>
+  </div>
+  <div
+    *ngIf="dialogData?.isLogoutDialog"
+    class="col-12 p-0 flex justify-content-end align-items-center"
+  >
+    <button
+      (click)="onCancel()"
+      pButton
+      class="at_btn btn-cancel mr-2"
+      label="No"
+    ></button>
+    <button
+      (click)="onConfirm()"
+      pButton
+      pRipple
+      type="button"
+      label="Yes"
+      class="p-button-raised at_btn"
+    ></button>
+  </div>
+</div>

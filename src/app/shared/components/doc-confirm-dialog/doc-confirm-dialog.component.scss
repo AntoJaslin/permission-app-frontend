@@ -1,0 +1,18 @@
+.doc_confirm_dialog {
+    min-width: 400px;
+    min-height: auto;
+
+    .at_btn {
+        min-width: 100px;
+    }
+}
+
+::ng-deep {
+    .p-dialog .p-dialog-content {
+        padding-bottom: 18px !important;
+    }
+
+    .p-dialog .p-dialog-header {
+        padding-top: 13px 20px !important;
+    }
+}

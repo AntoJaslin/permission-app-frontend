@@ -1,0 +1,22 @@
+
+
+::ng-depp {
+    app-side-nav-bar{
+        .menu-container{
+            .menu-container__list{
+                li{
+                    .icon-size{
+                        background-color: #fff !important;
+                        -webkit-mask-image: url('../../../../assets/images/icons/dashboard.svg');
+                        mask-image:url('../../../../assets/images/icons/dashboard.svg');
+                    }
+                    div{
+                        span{
+                            margin-left: 50px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

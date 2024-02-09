@@ -1,0 +1,38 @@
+:host ::ng-deep{
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .container-img{
+            text-align: center;
+            img{
+                width: 300px;
+                object-fit: cover;
+            }
+        }
+        .container-text{
+            text-align: center;
+            margin: 20px 0;
+            h5{
+                margin: 0;
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+        .container-btn{
+            text-align: center;
+            button{
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    @media (max-width:768px) {
+        .container{
+            .container-text{
+                width: auto !important;
+            }
+        }
+    }
+}

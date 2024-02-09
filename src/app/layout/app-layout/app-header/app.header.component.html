@@ -1,0 +1,70 @@
+<div class="layout-topbar">
+  <button
+    #menubutton
+    class="p-link layout-menu-button layout-topbar-button"
+    (click)="layoutService.onMenuToggle()"
+  >
+    <i class="pi pi-bars"></i>
+  </button>
+
+  <a class="layout-topbar-logo ml-3">
+    <img src="assets/images/logo-transparent.png" alt="logo" />
+  </a>
+
+  <button
+    #topbarmenubutton
+    class="p-link layout-topbar-menu-button layout-topbar-button"
+    (click)="layoutService.showProfileSidebar()"
+  >
+    <i class="pi pi-ellipsis-v"></i>
+  </button>
+
+  <div
+    #topbarmenu
+    class="layout-topbar-menu"
+    [ngClass]="{
+      'layout-topbar-menu-mobile-active':
+        layoutService.state.profileSidebarVisible
+    }"
+  >
+    <button
+      class="p-link layout-topbar-button"
+      (click)="notificationsPanel.toggle($event)"
+    >
+      <p-badge [value]="notificationsCount"></p-badge>
+      <img
+        class="mr-2"
+        src="/assets/icons/notification.svg"
+        alt="notification"
+      />
+      <span class="text">Notification</span>
+    </button>
+    <button
+      class="p-link layout-topbar-button"
+      (click)="userPanel.toggle($event)"
+    >
+      <img class="mr-2" src="/assets/icons/profile.svg" alt="profile" />
+      <span class="text">Profile</span>
+    </button>
+    <!-- Commented for future reference -->
+    <!-- <button (click)="onLogoutClick()" class="p-link layout-topbar-button" >
+            <img class="mr-2" src="/assets/icons/logout.svg" alt="logout">
+            <span class="text">Logout</span>
+        </button> -->
+  </div>
+</div>
+<p-overlayPanel #op1 [showCloseIcon]="false" [style]="{ width: '250px' }">
+  <ul>
+    <li>
+      <a (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</p-overlayPanel>
+<p-overlayPanel
+  styleClass="doc_notifications_panel"
+  #userPanel
+  [showCloseIcon]="false"
+  [style]="{ width: '270px' }"
+>
+  <app-profile></app-profile>
+</p-overlayPanel>

@@ -1,0 +1,96 @@
+<div class="surface-0 h-screen w-screen overflow-hidden">
+  <p-toast></p-toast>
+  <div class="grid h-full mt-0">
+    <div class="col-12 lg:col-6">
+      <div class="flex justify-content-center align-items-center h-full">
+        <div class="surface-card py-6 login--form">
+          <div class="mb-5">
+            <div class="text-900 font-bold text-5xl font-medium">Welcome</div>
+            <span class="text-600 font-medium"
+              >Please login to your account</span
+            >
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="field p-fluid block">
+              <label for="email" class="block text-900 font-bold text-lg"
+                >Email ID</label
+              >
+              <input
+                id="email"
+                formControlName="email"
+                type="text"
+                placeholder="email"
+                required
+                pInputText
+                class="w-full"
+                [ngClass]="{'ng-invalid ng-dirty': loginForm.get('email')?.errors?.['required'] && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched) }"
+              />
+              <small
+                class="p-error"
+                *ngIf="loginForm.get('email')?.errors?.['required'] && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
+              >
+                Email ID is Required.
+              </small>
+              <!-- Removed email login for LDAP integration -->
+              <small
+                class="p-error"
+                *ngIf="loginForm.get('email')?.hasError('pattern')"
+              >
+                Invalid Email ID.
+              </small>
+            </div>
+            <div class="field p-fluid block">
+              <label for="password1" class="block text-900 font-bold text-lg"
+                >Password</label
+              >
+              <span class="p-input-icon-right">
+                <i
+                  style="cursor: pointer"
+                  [ngClass]="
+                    currentPassword.type == 'password'
+                      ? 'pi pi-eye'
+                      : 'pi pi-eye-slash'
+                  "
+                  (click)="
+                    currentPassword.type =
+                      currentPassword.type == 'password' ? 'text' : 'password'
+                  "
+                ></i>
+                <input
+                  #currentPassword
+                  placeholder="Password"
+                  class="w-full"
+                  type="password"
+                  formControlName="password"
+                  [feedback]="false"
+                  pPassword
+                  [ngClass]="{'ng-invalid ng-dirty': loginForm.get('password')?.errors?.['pattern'] || loginForm.get('password')?.errors?.['required'] && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)}"
+                />
+              </span>
+              <small
+                class="p-error"
+                *ngIf="loginForm.get('password')?.errors?.['required'] && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+              >
+                Password is Required.
+              </small>
+            </div>
+
+            <div>
+              <a routerLink="/forgot-password" class="cursor-pointer"
+                >Forgot password?</a
+              >
+            </div>
+            <button
+              type="submit"
+              pButton
+              pRipple
+              label="Login"
+              class="w-full p-2 mt-3 text-xl"
+            ></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
